@@ -15,7 +15,7 @@ test('add to cart and pay with a wallet', async ({ page }) => {
 
 test('i18n: en → zh → ja → ko', async ({ page }) => {
   await page.goto('/')
-  for (const [label, text] of [['中文', '想要的一切'], ['日本語', '欲しいもの'], ['한국어', '필요한 모든'], ['EN', 'Everything']]) {
+  for (const [label, text] of [['中文', '心之所向'], ['日本語', '心惹かれる'], ['한국어', '갖고 싶은'], ['EN', 'Objects of desire']]) {
     await page.getByRole('button', { name: label }).click()
     await expect(page.getByRole('heading', { level: 1 })).toContainText(text)
   }

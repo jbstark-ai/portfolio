@@ -32,13 +32,17 @@ export function Shop() {
   const products = useQuery({ queryKey: ['products'], queryFn: api.products })
   return (
     <main>
+      <p className="eyebrow">{t('brand')}</p>
       <h1 className="tagline">{t('tagline')}</h1>
       <ul className="grid">
         {products.data?.map((p) => (
           <li key={p.id} className="tile">
-            <div className="art" style={{ background: `hsl(${p.hue} 80% 92%)`, color: `hsl(${p.hue} 70% 40%)` }}>{p.name[0]}</div>
+            <div className="art" style={{ background: `hsl(${p.hue} 20% 90%)` }}>
+              <img src={`/products/${p.id}.jpg`} alt={p.name} loading="lazy" />
+            </div>
+            <p className="cat">{p.category}</p>
             <h2>{p.name}</h2>
-            <p>{p.category} · {t('stock', { n: p.stock })}</p>
+            <p className="stock">{t('stock', { n: p.stock })}</p>
             <strong>Ξ {p.priceEth}</strong>
             <button onClick={() => add(p.id)}>{t('add')}</button>
           </li>
@@ -74,6 +78,7 @@ export function CartPage() {
       <ul className="lines">
         {items.map((i) => (
           <li key={i.productId}>
+            <img src={`/products/${i.productId}.jpg`} alt="" />
             <span>{products.data?.find((p) => p.id === i.productId)?.name}</span>
             <button aria-label="−" onClick={() => remove(i.productId)}>−</button>
             <b>{i.qty}</b>
