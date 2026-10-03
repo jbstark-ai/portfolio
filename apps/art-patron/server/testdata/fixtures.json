@@ -1,0 +1,7 @@
+{
+  "creators": [
+    { "id": 1, "name": "Cheap Creator", "city": "Taipei", "disciplines": ["painting", "music"], "hue": 10, "askUsd": 1000, "sharesOpen": 10 },
+    { "id": 2, "name": "Costly Creator", "city": "Seoul", "disciplines": ["film"], "hue": 200, "askUsd": 50000, "sharesOpen": 10 }
+  ],
+  "patrons": [{ "id": 1, "name": "Test Patron", "budgetUsd": 5000 }]
+}

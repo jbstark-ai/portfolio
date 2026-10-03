@@ -1,0 +1,4 @@
+[
+  { "id": 1, "name": "Test Pass", "category": "Collectibles", "priceEth": 0.05, "stock": 2, "hue": 0 },
+  { "id": 2, "name": "Test Mug", "category": "Merch", "priceEth": 0.01, "stock": 100, "hue": 50 }
+]

@@ -1,0 +1,9 @@
+{
+  "accounts": [
+    { "id": 1, "name": "Everyday", "balanceCents": 10000, "hue": 50 },
+    { "id": 2, "name": "Savings", "balanceCents": 500000, "hue": 190 }
+  ],
+  "transactions": [
+    { "id": 1, "accountId": 1, "payee": "Cafe", "memo": "", "amountCents": -500, "at": "2026-10-01T09:00:00Z" }
+  ]
+}

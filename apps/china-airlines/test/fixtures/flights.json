@@ -1,0 +1,10 @@
+{
+  "destinations": [
+    { "code": "TYO", "city": "Tokyo", "country": "Japan", "hueA": 350, "hueB": 220, "videoUrl": null },
+    { "code": "SEL", "city": "Seoul", "country": "South Korea", "hueA": 190, "hueB": 290, "videoUrl": null }
+  ],
+  "flights": [
+    { "id": "T1", "from": "TPE", "to": "TYO", "departs": "2026-11-01T08:30:00Z", "durationMin": 190, "priceUsd": 300 },
+    { "id": "T2", "from": "TPE", "to": "TYO", "departs": "2026-11-02T08:30:00Z", "durationMin": 195, "priceUsd": 260 }
+  ]
+}
