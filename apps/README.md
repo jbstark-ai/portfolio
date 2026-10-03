@@ -16,3 +16,5 @@ Here are some showcase apps built in Node/Go and React. Fully unit & E2E -tested
 
 
 
+
+Image attributions: see [CREDITS.md](./CREDITS.md).

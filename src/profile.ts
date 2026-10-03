@@ -31,7 +31,7 @@ export const apps = [
   },
   {
     name: 'Crypto Store',
-    blurb: 'A Web3 supermarket with a playful, Nintendo-inspired storefront and a .NET API.',
+    blurb: 'A luxury crypto-checkout boutique: editorial photography, serif typography and a .NET API.',
     image: 'screens/crypto.jpg',
     stack: ['TanStack Router/Query', '.NET 10', 'SQLite'],
     folder: 'crypto-store',
@@ -40,7 +40,7 @@ export const apps = [
   },
   {
     name: 'STARK',
-    blurb: 'Challenger-bank dashboard that fuses Polaroid framing with IBM Carbon-style clarity.',
+    blurb: 'Challenger-bank dashboard in a Polestar-calm palette of green and slate, with Polaroid-framed accounts.',
     image: 'screens/bank.jpg',
     stack: ['React', 'Vite', 'Node.js', 'Fastify', 'SQLite'],
     folder: 'neo-bank',
