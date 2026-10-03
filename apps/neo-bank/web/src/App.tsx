@@ -44,13 +44,14 @@ export default function App() {
           ))}
         </nav>
       </header>
-      <div className="spectrum" />
       <p className="greeting">{t('greeting')}</p>
 
       <section aria-label={t('accounts')} className="polaroids">
         {accounts === null ? <p>{t('loading')}</p> : accounts.map((a) => (
           <button key={a.id} className="polaroid" aria-pressed={a.id === selected} onClick={() => setSelected(a.id)}>
-            <div className="photo" style={{ background: `hsl(${a.hue} 70% 60%)` }} />
+            <div className="photo" style={{ background: `hsl(${a.hue} 10% 80%)` }}>
+              <img src={`/accounts/${a.id}.jpg`} alt="" />
+            </div>
             <span className="caption">{a.name}</span>
             <strong data-testid={`balance-${a.id}`}>{formatMoney(a.balanceCents, i18n.language)}</strong>
           </button>
