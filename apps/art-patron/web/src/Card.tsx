@@ -31,7 +31,7 @@ export function Card({ creator, onDecide }: { creator: Creator; onDecide: (liked
       onPointerUp={end}
     >
       {hint && <span className={`stamp ${hint}`}>{hint === 'like' ? t('fund') : t('pass')}</span>}
-      <span className="avatar" aria-hidden="true">{creator.name.slice(0, 1)}</span>
+      <img className="cover" src={`/creators/${creator.id}.jpg`} alt="" draggable={false} />
       <div className="meta">
         <h2>{creator.name}</h2>
         <p className="city">{creator.city}</p>
