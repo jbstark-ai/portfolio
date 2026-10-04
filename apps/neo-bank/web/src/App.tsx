@@ -46,13 +46,10 @@ export default function App() {
       </header>
       <p className="greeting">{t('greeting')}</p>
 
-      <section aria-label={t('accounts')} className="polaroids">
+      <section aria-label={t('accounts')} className="accounts">
         {accounts === null ? <p>{t('loading')}</p> : accounts.map((a) => (
-          <button key={a.id} className="polaroid" aria-pressed={a.id === selected} onClick={() => setSelected(a.id)}>
-            <div className="photo" style={{ background: `hsl(${a.hue} 10% 80%)` }}>
-              <img src={`/accounts/${a.id}.jpg`} alt="" />
-            </div>
-            <span className="caption">{a.name}</span>
+          <button key={a.id} className="account-card" aria-pressed={a.id === selected} onClick={() => setSelected(a.id)}>
+            <span>{a.name}</span>
             <strong data-testid={`balance-${a.id}`}>{formatMoney(a.balanceCents, i18n.language)}</strong>
           </button>
         ))}
