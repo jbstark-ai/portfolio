@@ -1,5 +1,5 @@
 :root {
-  --green: #0f7b4f; --slate: #46525e; --ink: #14181c; --paper: #ffffff; --mist: #f3f4f5; --line: #d9dde1;
+  --green: #0f7b4f; --slate: #46525e; --ink: #14181c; --paper: #ffffff; --mist: #f3f4f5; --line: #d9dde1; --accent: #d97706;
   font-family: 'IBM Plex Sans', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -13,21 +13,20 @@ header button { padding: .3rem 0; font-size: .8rem; letter-spacing: .08em; color
 header button:hover { color: var(--ink); }
 header button[aria-pressed='true'] { color: var(--green); border-bottom-color: var(--green); }
 .greeting { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 200; letter-spacing: -.01em; line-height: 1.1; margin: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3.5rem); max-width: 16ch; }
-.polaroids { display: flex; gap: clamp(1.5rem, 4vw, 3.5rem); flex-wrap: wrap; padding-bottom: clamp(5rem, 10vw, 8rem); }
-.polaroid { display: flex; flex-direction: column; width: min(100%, 21rem); background: var(--paper); padding: 1rem 1rem 1.4rem; border: 1px solid var(--line); text-align: left; transition: transform .4s cubic-bezier(.2, .7, .2, 1), border-color .2s; }
-.polaroid:hover { transform: translateY(-6px); }
-.polaroid[aria-pressed='true'] { border-color: var(--green); box-shadow: 0 0 0 1px var(--green); }
-.photo { aspect-ratio: 4 / 5; margin-bottom: 1.4rem; overflow: hidden; background: var(--mist); }
-.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.caption { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .22em; color: var(--slate); }
-.polaroid strong { font-weight: 300; font-size: 1.9rem; margin-top: .3rem; letter-spacing: -.01em; }
+.accounts { display: flex; gap: clamp(1.5rem, 4vw, 3.5rem); flex-wrap: wrap; padding-bottom: clamp(5rem, 10vw, 8rem); }
+.account-card { display: flex; flex-direction: column; justify-content: center; align-items: center; width: min(100%, 21rem); background: var(--paper); padding: 2rem 1.5rem; border: 2px solid var(--line); border-radius: 1.5rem; text-align: center; transition: all .4s cubic-bezier(.2, .7, .2, 1); }
+.account-card:hover { transform: translateY(-6px); border-color: var(--green); }
+.account-card[aria-pressed='true'] { border-color: var(--green); box-shadow: 0 0 0 2px var(--green); }
+.account-card span { font-weight: 300; font-size: .9rem; color: var(--slate); margin-bottom: .5rem; text-transform: uppercase; letter-spacing: .1em; }
+.account-card strong { font-weight: 300; font-size: 2.5rem; margin-top: .3rem; letter-spacing: -.01em; }
 section h2 { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .3em; color: var(--slate); margin: 0 0 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
 section { margin-bottom: clamp(4rem, 8vw, 6.5rem); }
 form { display: grid; grid-template-columns: 1fr 9rem 1fr auto; gap: 1.5rem; align-items: end; }
 @media (max-width: 52rem) { form { grid-template-columns: 1fr; } }
-input { font: inherit; font-weight: 300; padding: .9rem 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); }
+input, select { font: inherit; font-weight: 300; padding: .9rem 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); }
 input::placeholder { color: #8a949d; }
-input:focus { outline: none; border-bottom-color: var(--green); }
+input:focus, select:focus { outline: none; border-bottom-color: var(--green); }
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2346525e' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.5rem center; padding-right: 1.5rem; }
 .send { background: var(--ink); color: #fff; padding: 1rem 2.6rem; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; transition: background .2s; }
 .send:hover { background: var(--green); }
 .ok { color: var(--green); font-weight: 500; } .err { color: var(--slate); font-weight: 500; }

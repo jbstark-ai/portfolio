@@ -22,5 +22,11 @@ export function createMemoryRepo(): BankRepo {
       txs.push(t)
       return t
     },
+    credit(accountId, payee, memo, amountCents) {
+      accounts.find((a) => a.id === accountId)!.balanceCents += amountCents
+      const t = { id: txs.length + 1, accountId, payee, memo, amountCents, at: new Date().toISOString() }
+      txs.push(t)
+      return t
+    },
   }
 }
