@@ -1,23 +1,25 @@
-import Fastify from 'fastify'
-import cors from '@fastify/cors'
 import { planTrip } from './ai.js'
 import type { FlightRepo } from './types.js'
 
+const json = (body: unknown, status = 200) => Response.json(body, { status })
+
+/** Fetch-style handler shared by the Netlify Function and the Vite dev server. */
 export function buildApp(repo: FlightRepo) {
-  const app = Fastify()
-  app.register(cors)
+  return async (req: Request): Promise<Response> => {
+    const url = new URL(req.url)
+    if (req.method !== 'GET') return json({ error: 'method_not_allowed' }, 405)
 
-  app.get('/api/destinations', async () => repo.destinations())
+    if (url.pathname === '/api/destinations') return json(repo.destinations())
 
-  app.get<{ Params: { code: string } }>('/api/destinations/:code', async (req, reply) => {
-    const destination = repo.destination(req.params.code.toUpperCase())
-    if (!destination) return reply.code(404).send({ error: 'not_found' })
-    return { destination, flights: repo.flightsTo(destination.code) }
-  })
+    const trip = url.pathname.match(/^\/api\/destinations\/([^/]+)$/)
+    if (trip) {
+      const destination = repo.destination(trip[1].toUpperCase())
+      if (!destination) return json({ error: 'not_found' }, 404)
+      return json({ destination, flights: repo.flightsTo(destination.code) })
+    }
 
-  app.get<{ Querystring: { q?: string } }>('/api/ai/plan', async (req) =>
-    planTrip(req.query.q ?? '', repo.destinations()),
-  )
+    if (url.pathname === '/api/ai/plan') return json(planTrip(url.searchParams.get('q') ?? '', repo.destinations()))
 
-  return app
+    return json({ error: 'not_found' }, 404)
+  }
 }

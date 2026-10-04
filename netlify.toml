@@ -1,0 +1,7 @@
+# Portfolio wrapper. Each demo app in apps/ is its own Netlify site with its own netlify.toml.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

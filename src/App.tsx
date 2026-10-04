@@ -29,8 +29,8 @@ export default function App() {
         <section id="work">
           <h2>Selected work</h2>
           <p className="sub">
-            Four end-to-end apps, each with a database-backed API, unit tests, Playwright e2e tests and
-            English / 中文 / 日本語 / 한국어 localisation. All run locally.
+            Four end-to-end apps, each with a serverless TypeScript API, unit tests, Playwright e2e tests and
+            English / 中文 / 日本語 / 한국어 localisation. All live on Netlify.
           </p>
           <div className="grid">
             {apps.map((a) => (
@@ -43,7 +43,10 @@ export default function App() {
                     {a.stack.map((s) => <li key={s}>{s}</li>)}
                   </ul>
                   <code>apps/{a.folder}: {a.run}</code>
-                  <a className="link" href={tree(a.folder)}>View source →</a>
+                  <div className="links">
+                    <a className="link" href={a.demo}>Live demo →</a>
+                    <a className="link" href={tree(a.folder)}>View source →</a>
+                  </div>
                 </div>
               </article>
             ))}
