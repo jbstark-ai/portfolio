@@ -1,6 +1,4 @@
-import { apps, experience, profile, skills } from './profile'
-
-const tree = (folder: string) => `${profile.repo}/${folder}`
+import { experience, profile, skills } from './profile'
 
 export default function App() {
   return (
@@ -8,7 +6,6 @@ export default function App() {
       <header className="nav">
         <a href="#top" className="logo">{profile.name}</a>
         <nav>
-          <a href="#work">Work</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
@@ -22,33 +19,6 @@ export default function App() {
           <p className="lead">{profile.tagline}</p>
           <div className="cta">
             <a className="btn" href="#contact">Get in touch</a>
-          </div>
-        </section>
-
-        <section id="work">
-          <h2>Selected work</h2>
-          <p className="sub">
-            Four end-to-end apps, each with a serverless TypeScript API, unit tests, Playwright e2e tests and
-            English / 中文 / 日本語 / 한국어 localisation. All live on Netlify.
-          </p>
-          <div className="grid">
-            {apps.map((a) => (
-              <article className="card" key={a.name}>
-                <img src={a.image} alt={`${a.name} screenshot`} loading="lazy" />
-                <div className="body">
-                  <h3>{a.name}</h3>
-                  <p>{a.blurb}</p>
-                  <ul className="tags">
-                    {a.stack.map((s) => <li key={s}>{s}</li>)}
-                  </ul>
-                  <code>apps/{a.folder}: {a.run}</code>
-                  <div className="links">
-                    <a className="link" href={a.demo}>Live demo →</a>
-                    <a className="link" href={tree(a.folder)}>View source →</a>
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 
