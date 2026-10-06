@@ -21,8 +21,7 @@ export default function App() {
           <h1>Hi, I'm {profile.name}.<br /><span>{profile.role}</span></h1>
           <p className="lead">{profile.tagline}</p>
           <div className="cta">
-            <a className="btn" href="#work">See the apps</a>
-            <a className="btn ghost" href="#contact">Get in touch</a>
+            <a className="btn" href="#contact">Get in touch</a>
           </div>
         </section>
 
